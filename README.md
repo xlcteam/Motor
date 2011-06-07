@@ -40,6 +40,8 @@ also want to stop the motor:
 	motorA.stop();
 
 
+For more detailed usage see examples directory.
+
 (c) 2010 mr.Shu
 
 [Ardumoto]: http://www.sparkfun.com/products/9571
