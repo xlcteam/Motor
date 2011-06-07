@@ -44,5 +44,5 @@ For more detailed usage see examples directory.
 
 (c) 2010 mr.Shu
 
-[Ardumoto]: http://www.sparkfun.com/products/9571
+[Ardumoto]: http://www.sparkfun.com/products/9815 
 
