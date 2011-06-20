@@ -42,7 +42,7 @@ also want to stop the motor:
 
 For more detailed usage see examples directory.
 
-(c) 2010 mr.Shu
+(c) 2010 mr.Shu, licensed under GNU GPLv2 license
 
 [Ardumoto]: http://www.sparkfun.com/products/9815 
 
