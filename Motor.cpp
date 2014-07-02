@@ -28,7 +28,7 @@ Motor::Motor(int dir, int pwm, bool new_type)
 	pinMode(pwm,OUTPUT);
 	_dir = dir;
 	_pwm = pwm;
-    _new_type = new_type;
+	_new_type = new_type;
 }
 
 void Motor::go(int speed)
