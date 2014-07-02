@@ -22,7 +22,7 @@
 
 #include "Motor.h"
 
-Motor::Motor(int dir, int pwm, bool new_type=false)
+Motor::Motor(int dir, int pwm, bool new_type)
 {
 	pinMode(dir,OUTPUT);
 	pinMode(pwm,OUTPUT);
@@ -67,6 +67,5 @@ void Motor::stop()
         digitalWrite(_dir, HIGH);
         //set speed 0 (stop the motor)
         analogWrite(_pwm,0);
+    }
 }
-
-
