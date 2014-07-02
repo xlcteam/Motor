@@ -39,7 +39,7 @@ class Motor
 	private:
 		int _dir;
 		int _pwm;
-        bool _new_type;
+		bool _new_type;
 };
 
 #endif
