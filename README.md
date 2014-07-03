@@ -30,6 +30,13 @@ Then you can define a new motor
 
 where `13` is  the direction pin and `11` is the PWM pin on Ardumoto.
 
+If you are using new type of driver (made by XLC Team) you have to add one more argument,
+so the library know that you are not using old driver.
+
+    Motor motorA = Motor(13, 11, true);
+
+where `13` and `11` are pwm pins on Arduino
+
 Next thing you might want to do is to move the motor. This can be done this way
 
 	motorA.go(200);
