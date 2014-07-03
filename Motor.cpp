@@ -60,12 +60,7 @@ void Motor::go(int speed)
 
 void Motor::stop()
 {
-    if (_new_type){
         digitalWrite(_dir, LOW);
-        digitalWrite(_pwm, LOW);
-    } else {
-        digitalWrite(_dir, HIGH);
         //set speed 0 (stop the motor)
         analogWrite(_pwm,0);
-    }
 }
