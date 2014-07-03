@@ -22,36 +22,45 @@
 
 #include "Motor.h"
 
-Motor::Motor(int dir, int pwm)
+Motor::Motor(int dir, int pwm, bool new_type)
 {
 	pinMode(dir,OUTPUT);
 	pinMode(pwm,OUTPUT);
 	_dir = dir;
 	_pwm = pwm;
+	_new_type = new_type;
 }
 
 void Motor::go(int speed)
 {
-	int type = HIGH;
-	//if speed is negative, rotate motor to another direction
-	if(speed < 0){
-		type = LOW;
-	}
+    int type = HIGH;
+    // if speed is negative, rotate motor to another direction
+    if(speed < 0){
+        type = LOW;
+    }
+    //use speed values only from range <0,255>
+    speed = abs(speed % 256);
 
-	//use speed values only from range <0,255>
-	speed = abs(speed % 256);
-
-	//write direction
-	digitalWrite(_dir, type);
-	//write speed
-	analogWrite(_pwm, speed);
+    if (_new_type){
+        // write zero to one pin, and speed on second
+        if (speed < 0){
+            digitalWrite(_dir, LOW);
+            analogWrite(_pwm, speed);
+        } else {
+            analogWrite(_dir, speed);
+            digitalWrite(_pwm, LOW);
+        }
+    } else {
+        //write direction
+        digitalWrite(_dir, type);
+        //write speed
+        analogWrite(_pwm, speed);
+    }
 }
 
 void Motor::stop()
 {
-	digitalWrite(_dir, HIGH);
-	//set speed 0 (stop the motor)
-	analogWrite(_pwm,0);
+        digitalWrite(_dir, LOW);
+        //set speed 0 (stop the motor)
+        analogWrite(_pwm,0);
 }
-
-

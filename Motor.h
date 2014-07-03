@@ -33,12 +33,13 @@
 class Motor
 {
 	public:
-		Motor(int dir, int pwn);
+		Motor(int dir, int pwm, bool new_type=false);
 		void go(int speed);
 		void stop();
 	private:
 		int _dir;
 		int _pwm;
+		bool _new_type;
 };
 
 #endif
