@@ -33,10 +33,16 @@ Motor::Motor(int dir, int pwm, bool new_type)
 
 void Motor::go(int speed)
 {
+    int type = HIGH;
+    // if speed is negative, rotate motor to another direction
+    if(speed < 0){
+        type = LOW;
+    }
     //use speed values only from range <0,255>
     speed = abs(speed % 256);
 
     if (_new_type){
+        // write zero to one pin, and speed on second
         if (speed < 0){
             digitalWrite(_dir, LOW);
             analogWrite(_pwm, speed);
@@ -45,12 +51,6 @@ void Motor::go(int speed)
             digitalWrite(_pwm, LOW);
         }
     } else {
-        int type = HIGH;
-        //if speed is negative, rotate motor to another direction
-        if(speed < 0){
-            type = LOW;
-        }
-
         //write direction
         digitalWrite(_dir, type);
         //write speed
