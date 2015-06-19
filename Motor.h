@@ -32,13 +32,14 @@
 
 class Motor
 {
-	public:
-		Motor(int dir, int pwn);
-		void go(int speed);
-		void stop();
-	private:
-		int _dir;
-		int _pwm;
+    public:
+        Motor(int dir, int pwn);
+        void go(int speed);
+        void stop();
+        void off();
+    private:
+        int _dir;
+        int _pwm;
 };
 
 #endif
